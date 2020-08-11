@@ -35,33 +35,33 @@ const removeActiveClassesFromDropdownMenu = () => {
         el.classList.remove('field-active');
     })
 }
+const toggleSubMenuActive = (event) => {
+    event.nextElementSibling.classList.toggle('submenu-active');
+}
+const toggleDropdownMenuActive = (event) => {
+    event.nextElementSibling.classList.toggle('dropdown-menu-active');
+}
 
 menu.addEventListener('click', function (e) {
     if(e.target.classList.contains('arrow-icon')) {
         const currentArrow = e.target;
-        if(currentArrow.nextElementSibling.classList.contains('submenu-active')) {
-            toggleActiveFields(currentArrow);
-            currentArrow.nextElementSibling.classList.toggle('submenu-active');
-            return;
-        }
+
         if(currentArrow.nextElementSibling.classList.contains('submenu')) {
-            removeActiveClassesFromSubMenu();
+            if(!currentArrow.nextElementSibling.classList.contains('submenu-active')) {
+                removeActiveClassesFromSubMenu();
+            }
             toggleActiveFields(currentArrow);
-            currentArrow.nextElementSibling.classList.toggle('submenu-active');
+            toggleSubMenuActive(currentArrow);
             currentArrow.scrollIntoView();
-            return;
         }
 
-        if(currentArrow.nextElementSibling.classList.contains('dropdown-menu-active')) {
-            toggleActiveFields(currentArrow);
-            currentArrow.nextElementSibling.classList.toggle('dropdown-menu-active');
-            return;
-        }
         if(currentArrow.nextElementSibling.classList.contains('dropdown-menu')){
-            removeActiveClassesFromDropdownMenu();
-            removeActiveClassesFromSubMenu();
+            if(!currentArrow.nextElementSibling.classList.contains('dropdown-menu-active')) {
+                removeActiveClassesFromDropdownMenu();
+                removeActiveClassesFromSubMenu();
+            }
             toggleActiveFields(currentArrow);
-            currentArrow.nextElementSibling.classList.toggle('dropdown-menu-active');
+            toggleDropdownMenuActive(currentArrow);
             currentArrow.scrollIntoView();
         }
 
