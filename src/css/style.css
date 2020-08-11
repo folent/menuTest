@@ -38,6 +38,7 @@ p {
 
 .header__wrapper:hover + .overlay {
     opacity: 1;
+    transition: opacity 0.3s linear;
 }
 .menu {
     display: flex;
@@ -159,7 +160,6 @@ a {
 
     li {
         position: relative;
-        /*top: 16px;*/
         background-color: white;
         display: flex;
         align-items: center;
@@ -197,7 +197,9 @@ a {
         justify-content: space-around;
         max-height: 100vh;
     }
-
+    .menu > li {
+        border-bottom: 1px solid #ccc;
+    }
     .menu > li:hover {
         border-bottom: 1px solid #ccc;
     }
