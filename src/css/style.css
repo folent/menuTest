@@ -45,6 +45,10 @@ p {
     position: relative;
 }
 
+.menu > li {
+    border-bottom: 3px solid transparent;
+}
+
 .menu > li:hover {
     border-bottom: 3px solid orange;
 }
