@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    position: relative;
+}
 
 .header {
     box-shadow: 0 4px 16px 1px #ccc;
@@ -33,7 +36,7 @@ p {
     transition: .3s linear;
 }
 
-.header__wrapper:hover + .content {
+.header__wrapper:hover + .overlay {
     opacity: 1;
 }
 .menu {
@@ -88,8 +91,8 @@ a {
     font-size: 16px;
 }
 
-.content {
-    position: fixed;
+.overlay {
+    position: absolute;
     background-color: rgba(0,0,0,0.7);
     opacity: 0;
     width: 100%;
@@ -187,6 +190,7 @@ a {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        max-height: 100vh;
     }
 
     .menu > li:hover {
@@ -223,7 +227,7 @@ a {
         transition: transform .3s linear;
     }
 
-    .content {
+    .overlay {
         opacity: 1;
     }
 
